@@ -7,7 +7,7 @@ import java.util.*
 
 class RailSystem {
 
-        // TODO, if necessary make sizes editable. Maybe through Factory.
+        // if necessary make sizes editable. Maybe through Factory.
     private val REGISTERS: Array<RailRegister> = Array(16) { RailRegister() }
     private val RAM: Array<Byte> = Array(256) { 0 }
     private val CALL_STACK: Stack<Byte> = Stack()
