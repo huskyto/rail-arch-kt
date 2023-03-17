@@ -5,7 +5,7 @@ import com.sillyhusky.arch.rail.registers.RailIORegister
 import com.sillyhusky.arch.rail.registers.RailRegister
 import java.util.*
 
-class RailSystem {
+class RailSystem : IRailSystem {
 
         // if necessary make sizes editable. Maybe through Factory.
     private val REGISTERS: Array<RailRegister> = Array(16) { RailRegister() }
@@ -24,9 +24,25 @@ class RailSystem {
         }
     }
 
-    fun step() {
+    override fun step() {
         val instruction = getNextInstructionBlock()
         processInstruction(instruction)
+    }
+
+    override fun getRegisterValue(reg: Int): Byte {
+        return REGISTERS[reg].get()
+    }
+
+    override fun getCntRegisterValue(): Byte {
+        return getCntRegister().get()
+    }
+
+    override fun getProgramSlice(start: Int, end: Int): Array<Byte> {
+        return PROGRAM.slice(start .. end).toTypedArray()
+    }
+
+    override fun getRAMSlice(start: Int, end: Int): Array<Byte> {
+        return RAM.slice(start .. end).toTypedArray()
     }
 
     private fun getNextInstructionBlock(): RailInstructionBlock {
