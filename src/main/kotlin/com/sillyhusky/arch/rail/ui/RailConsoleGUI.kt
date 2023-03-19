@@ -62,7 +62,7 @@ class RailConsoleGUI {
         return if (lineNum == 0 || lineNum == height) {
             border.repeat(width)
         } else {
-            getLeft(lineNum) + getCenter(lineNum) + getRight(lineNum)
+            getLeft(lineNum) + getCenter(lineNum-1) + getRight(lineNum-1)
         }
     }
 

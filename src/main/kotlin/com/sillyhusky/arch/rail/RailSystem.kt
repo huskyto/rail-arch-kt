@@ -18,10 +18,10 @@ class RailSystem : IRailSystem {
     }
 
     constructor(program: Array<Byte>) {
-        RailSystem()
         for (i in program.indices) {
             this.PROGRAM[i] = program[i]
         }
+        REGISTERS[15] = RailIORegister()
     }
 
     override fun step() {

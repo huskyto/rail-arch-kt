@@ -7,5 +7,5 @@ interface IRailSystem {
     fun getCntRegisterValue(): Byte
     fun getProgramSlice(start: Int, end: Int): Array<Byte>
     fun getRAMSlice(start: Int, end: Int): Array<Byte>
-    
+
 }
